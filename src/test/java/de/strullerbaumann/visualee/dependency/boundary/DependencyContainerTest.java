@@ -21,6 +21,7 @@ package de.strullerbaumann.visualee.dependency.boundary;
  */
 import de.strullerbaumann.visualee.dependency.entity.Dependency;
 import de.strullerbaumann.visualee.dependency.entity.DependencyType;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
 import de.strullerbaumann.visualee.source.boundary.*;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
@@ -44,6 +45,8 @@ public class DependencyContainerTest {
    @Before
    public void init() {
       DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
    }
 
    @Test

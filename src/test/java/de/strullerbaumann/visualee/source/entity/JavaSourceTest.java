@@ -22,10 +22,14 @@ package de.strullerbaumann.visualee.source.entity;
 import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
 import de.strullerbaumann.visualee.dependency.entity.Dependency;
 import de.strullerbaumann.visualee.dependency.entity.DependencyType;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
+import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.testdata.TestDataProvider;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -37,6 +41,12 @@ public class JavaSourceTest {
    public JavaSourceTest() {
    }
 
+   @Before
+   public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
+   }
    @Test
    public void testConstructor() {
       String expected = "test2myTestJavaFile";
