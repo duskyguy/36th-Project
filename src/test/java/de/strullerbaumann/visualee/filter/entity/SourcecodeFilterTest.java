@@ -35,7 +35,9 @@ package de.strullerbaumann.visualee.filter.entity;
  * #L%
  */
 
+import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
 import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
+import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import org.junit.After;
@@ -57,6 +59,12 @@ public class SourcecodeFilterTest {
    public SourcecodeFilterTest() {
    }
 
+   @Before
+   public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
+   }
    @BeforeClass
    public static void setUpClass() {
       FilterContainer.getInstance().clear();

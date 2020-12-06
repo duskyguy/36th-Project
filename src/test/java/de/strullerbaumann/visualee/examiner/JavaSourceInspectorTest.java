@@ -20,10 +20,14 @@ package de.strullerbaumann.visualee.examiner;
  * #L%
  */
 import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
+import de.strullerbaumann.visualee.examiner.cdi.ExaminerEJB;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
 import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -35,6 +39,12 @@ public class JavaSourceInspectorTest {
    public JavaSourceInspectorTest() {
    }
 
+   @Before
+   public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
+   }
    @Test
    public void testFindAndSetAttributesIgnoreComments() {
       JavaSource javaSource;

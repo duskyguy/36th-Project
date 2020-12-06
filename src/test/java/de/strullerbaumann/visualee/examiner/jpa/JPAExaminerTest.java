@@ -22,10 +22,13 @@ package de.strullerbaumann.visualee.examiner.jpa;
 import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
 import de.strullerbaumann.visualee.dependency.entity.Dependency;
 import de.strullerbaumann.visualee.dependency.entity.DependencyType;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
+import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import de.strullerbaumann.visualee.testdata.TestDataProvider;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -37,6 +40,12 @@ public class JPAExaminerTest {
    public JPAExaminerTest() {
    }
 
+   @Before
+   public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
+   }
    @Test
    public void testIsRelevantType() {
       ExaminerJPA jpaExaminer = new ExaminerJPA();

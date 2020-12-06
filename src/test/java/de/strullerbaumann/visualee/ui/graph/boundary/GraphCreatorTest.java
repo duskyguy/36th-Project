@@ -22,6 +22,8 @@ package de.strullerbaumann.visualee.ui.graph.boundary;
 import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
 import de.strullerbaumann.visualee.dependency.boundary.DependencyFilter;
 import de.strullerbaumann.visualee.dependency.entity.DependencyType;
+import de.strullerbaumann.visualee.examiner.cdi.ExaminerEJB;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
 import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
@@ -30,6 +32,8 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -38,6 +42,12 @@ import org.junit.Test;
  */
 public class GraphCreatorTest {
 
+   @Before
+   public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
+   }
    public GraphCreatorTest() {
    }
 

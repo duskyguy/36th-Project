@@ -20,6 +20,7 @@ package de.strullerbaumann.visualee.source.boundary;
  * #L%
  */
 import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import static org.junit.Assert.*;
@@ -38,6 +39,8 @@ public class JavaSourceContainerTest {
    @Before
    public void init() {
       DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
    }
 
    @Test

@@ -34,7 +34,10 @@ package de.strullerbaumann.visualee.filter.boundary;
  * limitations under the License.
  * #L%
  */
+import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
+import de.strullerbaumann.visualee.examiner.cdi.ExaminerEJB;
 import de.strullerbaumann.visualee.filter.entity.SourcecodeFilter;
+import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import org.junit.After;
@@ -82,6 +85,9 @@ public class FilterContainerTest {
 
    @Before
    public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
    }
 
    @After

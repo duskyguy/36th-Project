@@ -22,6 +22,8 @@ package de.strullerbaumann.visualee.examiner.cdi;
 import de.strullerbaumann.visualee.dependency.boundary.DependencyContainer;
 import de.strullerbaumann.visualee.dependency.entity.Dependency;
 import de.strullerbaumann.visualee.dependency.entity.DependencyType;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
+import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import static org.junit.Assert.*;
@@ -42,6 +44,9 @@ public class ExaminerEventTest {
    @Before
    public void init() {
       examiner = new ExaminerEvent();
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
    }
 
    @Test

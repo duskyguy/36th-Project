@@ -25,12 +25,15 @@ import de.strullerbaumann.visualee.dependency.entity.DependencyType;
 import de.strullerbaumann.visualee.examiner.JavaSourceInspector;
 import de.strullerbaumann.visualee.examiner.cdi.ExaminerInject;
 import de.strullerbaumann.visualee.examiner.cdi.ExaminerProduces;
+import de.strullerbaumann.visualee.filter.boundary.FilterContainer;
 import de.strullerbaumann.visualee.source.boundary.JavaSourceContainer;
 import de.strullerbaumann.visualee.source.entity.JavaSource;
 import de.strullerbaumann.visualee.source.entity.JavaSourceFactory;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -39,6 +42,12 @@ import org.junit.Test;
  */
 public class DescriptionTest {
 
+   @Before
+   public void init() {
+      DependencyContainer.getInstance().clear();
+      FilterContainer.getInstance().clear();
+      JavaSourceContainer.getInstance().clear();
+   }
    public DescriptionTest() {
    }
 
