@@ -5,7 +5,7 @@ pipeline{
         stage('build'){
             steps
             {   
-                bat 'C:/Users/dell/Downloads/apache-maven-3.9.6/bin/mvn Compile'
+                bat 'C:/Users/dell/Downloads/apache-maven-3.9.6/bin/mvn compile'
 
             }
         }
